@@ -1,38 +1,15 @@
 import React, {Component} from 'react';
 import { Text, View, TextInput, StyleSheet } from 'react-native';
+import {
+  createStackNavigator,
+} from 'react-navigation';
+import HomeScreen from './screens/HomeScreen.js';
+import DivideScreen from './screens/DivideScreen.js';
 
-const textStyles = StyleSheet.create({
-  bigblue: {
-    fontWeight: 'bold',
-    fontSize: 30,
-    marginTop: 30,
-  }
-})
-export default class inputTaker extends Component {
-  constructor(props){
-    super(props);
-    this.state = {text: ' ', number:0};
-  }
-  render() {
-    return(
-      <View>
-        <View style = {{backgroundColor: 'powderblue'}}>
-        <Text style={textStyles.bigblue}>This page will add two number</Text>
-        <TextInput
-        placeholder = "First Number"
-        style = {{height: 40}}
-        onChangeText={(text)=>this.setState({text})}
-        />
-        <TextInput
-        placeholder = "Second Number"
-        style = {{height: 40}}
-        onChangeText={(text)=>this.setState({text})}
-        />
-        <Text style={{padding: 10, fontSize: 42}}>
-          {this.state.number}
-        </Text>
-        </View>
-      </View>
-    );
-  }
-}
+
+const App = createStackNavigator({
+  Home: { screen: HomeScreen },
+  DivideScreen: { screen: DivideScreen },
+});
+
+export default App;
